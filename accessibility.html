@@ -1,89 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessibility - NetPariksha</title>
+    <title>Accessibility Statement - NetPariksha.com</title>
+    <meta name="description" content="NetPariksha.com Accessibility Statement and Policy.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-         :root {
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        :root {
             --primary: #2563eb;
-            --background: #0f172a;
+            --accent: #10b981;
+            --glass-bg: rgba(35,41,64,0.96);
+            --glass-border: linear-gradient(120deg, #2563eb 0%, #10b981 100%);
+            --shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+            --gradient: linear-gradient(135deg, #232526 0%, #1a2980 100%);
             --text: #f8fafc;
+            --button-gradient: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
         }
-        
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
         body {
             min-height: 100vh;
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #232526 0%, #1a2980 100%);
+            background: var(--gradient);
             color: var(--text);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2rem;
+            padding: 2rem 0 3rem 0;
         }
-        
-        .container {
-            background: rgba(34, 40, 49, 0.85);
-            border-radius: 2rem;
-            padding: 2.5rem;
-            max-width: 800px;
-            width: 90%;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .access-card {
+            background: var(--glass-bg);
+            border-radius: 2.2rem;
+            box-shadow: var(--shadow), 0 2px 12px 0 #10b98130;
+            border: 2.5px solid transparent;
+            background-clip: padding-box;
+            padding: 2.7rem 2.1rem 2.4rem 2.1rem;
+            max-width: 510px;
+            width: 96vw;
+            margin: 3.3rem auto 2.2rem auto;
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+            transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
+            transform: perspective(700px) translateZ(0px);
+            animation: floatIn 1s cubic-bezier(.47,1.64,.41,.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        
-        h1 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
+        .access-card:hover {
+            box-shadow: 0 24px 64px 0 #10b98130, 0 4px 32px #2563eb30;
+            border-image: var(--glass-border) 1;
+            border-width: 2.5px;
+            border-style: solid;
+            transform: perspective(700px) translateZ(24px) scale(1.025);
         }
-        
-        p,
-        ul {
-            line-height: 1.6;
-            margin-bottom: 1rem;
+        @keyframes floatIn {
+            from { opacity: 0; transform: translateY(60px) scale(0.98);}
+            to { opacity: 1; transform: translateY(0) scale(1);}
         }
-        
-        ul {
-            margin-left: 1.5em;
-        }
-        
-        .start-btn {
+        .access-icon {
+            font-size: 2.7rem;
+            color: #29e6ff;
+            margin-bottom: 0.3em;
+            filter: drop-shadow(0 0 10px #29e6ff80);
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            border-radius: 50%;
+            padding: 0.3em 0.45em;
             display: inline-block;
+        }
+        .main-title {
+            font-size: 1.7rem;
+            font-weight: 900;
+            text-align: center;
+            background: linear-gradient(90deg, #29e6ff 20%, #2563eb 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 12px #2563eb80;
+            margin-bottom: 0.7em;
+            margin-top: 0;
+        }
+        .access-desc {
+            color: #e2e8f0;
+            font-size: 1.13rem;
+            text-align: center;
+            margin-bottom: 2.1em;
+            line-height: 1.8;
+        }
+        .access-section-title {
+            color: #10b981;
+            font-size: 1.13em;
+            font-weight: 700;
+            margin-top: 1.4em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        ul.access-list {
+            margin: 0 0 1.5em 0;
+            padding: 0 0 0 1.3em;
+        }
+        ul.access-list li {
+            margin-bottom: 0.85em;
+            color: #e2e8f0;
+            font-size: 1.08em;
+            line-height: 1.6;
+        }
+        .access-note {
+            color: #a5b4fc;
+            font-size: 0.99em;
+            margin: 1.2em 0 0.6em 0;
+            text-align: center;
+        }
+        .glass-btn {
+            display: inline-block;
+            width: 100%;
             padding: 1rem 2.5rem;
-            background: var(--primary);
-            color: white;
             border: none;
             border-radius: 2rem;
             font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            background: var(--button-gradient);
+            box-shadow: 0 4px 32px 0 #10b98140, 0 1.5px 8px 0 #23252640;
+            cursor: pointer;
+            margin: 1.5rem auto 0 auto;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            transform: perspective(400px) translateZ(10px);
             text-decoration: none;
-            margin-top: 2rem;
-            transition: background 0.3s;
+            text-align: center;
+            animation: btnPop 1s cubic-bezier(.47,1.64,.41,.8);
         }
-        
-        .start-btn:hover {
-            background: #3b82f6;
+        .glass-btn i {
+            margin-right: 0.5em;
         }
-        
-        a {
-            color: #60a5fa;
+        .glass-btn:hover {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            transform: perspective(400px) translateZ(25px) scale(1.04);
+            box-shadow: 0 8px 32px 0 #10b98190, 0 2px 16px 0 #23252660;
+        }
+        @keyframes btnPop {
+            from { opacity: 0; transform: scale(0.88);}
+            to { opacity: 1; transform: scale(1);}
+        }
+        @media (max-width: 600px) {
+            .access-card { padding: 1.2rem 0.7rem 1.2rem 0.7rem; }
+            .main-title { font-size: 1.18rem; }
+            .access-icon { font-size: 1.7rem; }
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>Accessibility Commitment</h1>
-        <p>We strive to meet WCAG 2.1 AA standards. Features include:</p>
-        <ul>
-            <li>Keyboard navigation support</li>
-            <li>High contrast mode</li>
-            <li>Screen reader compatibility</li>
+    <div class="access-card">
+        <div class="access-icon"><i class="fas fa-universal-access"></i></div>
+        <div class="main-title">Accessibility Statement</div>
+        <div class="access-desc">
+            NetPariksha.com is committed to providing a website that is accessible to the widest possible audience, regardless of technology or ability. We strive to ensure that our digital services are inclusive and usable for everyone, including people with disabilities.
+        </div>
+        <div class="access-section-title">Our Commitment</div>
+        <ul class="access-list">
+            <li>We follow the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" style="color:#29e6ff;font-weight:700;" target="_blank" rel="noopener">Web Content Accessibility Guidelines (WCAG)</a> 2.1 Level AA as our accessibility standard.</li>
+            <li>We design and test our website to be compatible with screen readers, keyboard navigation, and assistive technologies.</li>
+            <li>We use high-contrast text, logical heading structure, descriptive links, and alt text for images.</li>
+            <li>We aim to ensure all interactive elements are accessible by keyboard and touch.</li>
+            <li>We continually review and improve accessibility features as technology and standards evolve.</li>
         </ul>
-        <p>Suggestions? Email <a href="mailto:priyanshuaryanp8626@gmail.com">priyanshuaryanp8626@gmail.com</a></p>
-        <a href="index.html" class="start-btn">Back to Home</a>
+        <div class="access-section-title">Accessibility Principles (POUR)</div>
+        <ul class="access-list">
+            <li><b>Perceivable:</b> Information and user interface components are presented in ways users can perceive (e.g., alt text, contrast, captions).</li>
+            <li><b>Operable:</b> All functionality is available from a keyboard and accessible for users with different input methods.</li>
+            <li><b>Understandable:</b> Content and navigation are clear, predictable, and easy to follow.</li>
+            <li><b>Robust:</b> Content is compatible with current and future assistive technologies.</li>
+        </ul>
+        <div class="access-section-title">Continuous Improvement</div>
+        <p style="color:#e2e8f0;font-size:1.08em;margin-bottom:1.3em;">
+            Accessibility is an ongoing effort. We regularly audit and update our site to improve usability for all. We recommend using the latest browsers and assistive technologies for the best experience.
+        </p>
+        <div class="access-section-title">Feedback & Contact</div>
+        <p style="color:#e2e8f0;font-size:1.08em;margin-bottom:1.3em;">
+            If you encounter any accessibility barriers or have suggestions for improvement, please contact us at <a href="mailto:priyanshuaryanp8626@gmail.com" style="color:#29e6ff;font-weight:700;">priyanshuaryanp8626@gmail.com</a>. We value your feedback and will make all reasonable efforts to address your concerns promptly.
+        </p>
+        <div class="access-note">
+            Last updated: 16 May 2025<br>
+            For more information about web accessibility standards, visit the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" style="color:#29e6ff;font-weight:700;" target="_blank" rel="noopener">W3C Web Accessibility Initiative</a>.
+        </div>
+        <a href="index.html" class="glass-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
     </div>
 </body>
-
 </html>
