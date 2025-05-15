@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://netpariksha.netlify.app/sitemap.xml
