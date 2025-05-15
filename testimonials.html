@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Testimonials & Reviews - NetPariksha.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="See what users say about NetPariksha.com.">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        html,
+        body {
+            min-height: 100vh;
+        }
+        
+        body {
+            background: #16181e;
+            font-family: 'Inter', sans-serif;
+            color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Animated glass blobs */
+        
+        .blob {
+            position: fixed;
+            z-index: 0;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.45;
+            animation: floatBlob 18s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        
+        .blob1 {
+            width: 400px;
+            height: 400px;
+            background: #3b82f6;
+            top: -120px;
+            left: -120px;
+            animation-delay: 0s;
+        }
+        
+        .blob2 {
+            width: 300px;
+            height: 300px;
+            background: #10b981;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 4s;
+        }
+        
+        .blob3 {
+            width: 220px;
+            height: 220px;
+            background: #facc15;
+            top: 50%;
+            left: 70%;
+            animation-delay: 8s;
+        }
+        
+        @keyframes floatBlob {
+            0% {
+                transform: scale(1) translateY(0);
+            }
+            100% {
+                transform: scale(1.18) translateY(-40px);
+            }
+        }
+        
+        .container {
+            max-width: 1170px;
+            margin: 0 auto;
+            padding: 2.5rem 1rem 2rem 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .main-title {
+            font-size: 2.7rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #3b82f6 20%, #10b981 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            letter-spacing: 2px;
+            margin-bottom: 0.5em;
+            margin-top: 0.2em;
+            text-shadow: 0 2px 32px #10b98170;
+            filter: drop-shadow(0 0 28px #10b98150);
+            animation: glow 2.5s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                filter: drop-shadow(0 2px 12px #10b981c0);
+            }
+            to {
+                filter: drop-shadow(0 8px 36px #3b82f6cc);
+            }
+        }
+        
+        .subtitle {
+            color: #a5b4fc;
+            font-size: 1.22rem;
+            margin-bottom: 3em;
+            text-shadow: 0 1px 10px #232946;
+            letter-spacing: 0.3px;
+        }
+        
+        .testimonials-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: center;
+            margin-bottom: 2.7rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-card {
+            background: rgba(35, 41, 64, 0.93);
+            border-radius: 2.1rem;
+            box-shadow: 0 8px 32px 0 rgba(16, 185, 129, 0.15), 0 0 0 2px #232946;
+            border: 2.5px solid transparent;
+            padding: 2.2rem 1.8rem 1.8rem 1.8rem;
+            max-width: 320px;
+            min-width: 260px;
+            flex: 1 1 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
+            animation: slideIn 1s cubic-bezier(.47, 1.64, .41, .8) both;
+            border-image: linear-gradient(135deg, #10b981 0%, #3b82f6 100%) 1;
+        }
+        
+        .testimonial-card.featured {
+            border-width: 3.5px;
+            border-image: linear-gradient(90deg, #facc15 0%, #3b82f6 100%) 1;
+            box-shadow: 0 0 0 6px #facc1530, 0 8px 32px 0 rgba(16, 185, 129, 0.18);
+            position: relative;
+            z-index: 3;
+            animation: pulseBorder 2.2s infinite alternate;
+        }
+        
+        @keyframes pulseBorder {
+            0% {
+                box-shadow: 0 0 0 8px #facc1530, 0 8px 32px 0 rgba(16, 185, 129, 0.18);
+            }
+            100% {
+                box-shadow: 0 0 0 18px #facc1540, 0 8px 32px 0 rgba(16, 185, 129, 0.18);
+            }
+        }
+        
+        .testimonial-card:hover {
+            box-shadow: 0 16px 48px 0 #10b98170, 0 4px 24px #2563eb30;
+            transform: scale(1.045) translateY(-3px);
+            border-image: linear-gradient(135deg, #10b981 0%, #3b82f6 100%) 1;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(60px) scale(0.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .avatar-frame {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            border-radius: 50%;
+            padding: 7px;
+            margin-bottom: 1.1em;
+            box-shadow: 0 0 22px #10b98140;
+            animation: avatarGlow 2.5s infinite alternate;
+            display: inline-block;
+            transition: box-shadow 0.3s;
+        }
+        
+        .testimonial-card.featured .avatar-frame {
+            background: linear-gradient(135deg, #facc15 0%, #3b82f6 100%);
+            box-shadow: 0 0 32px #facc1560;
+            animation: avatarGlowFeatured 2s infinite alternate;
+        }
+        
+        @keyframes avatarGlow {
+            from {
+                box-shadow: 0 0 16px #10b98150;
+            }
+            to {
+                box-shadow: 0 0 32px #3b82f6cc;
+            }
+        }
+        
+        @keyframes avatarGlowFeatured {
+            from {
+                box-shadow: 0 0 24px #facc1560;
+            }
+            to {
+                box-shadow: 0 0 44px #3b82f6cc;
+            }
+        }
+        
+        .avatar-svg {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            display: block;
+            background: #fff;
+        }
+        
+        .crown {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.2rem;
+            color: #facc15;
+            text-shadow: 0 2px 10px #facc1588;
+            animation: crownPulse 1.3s infinite alternate;
+            z-index: 10;
+        }
+        
+        @keyframes crownPulse {
+            from {
+                filter: drop-shadow(0 0 4px #facc1588);
+            }
+            to {
+                filter: drop-shadow(0 0 18px #facc15);
+            }
+        }
+        
+        .user-name {
+            font-weight: 700;
+            font-size: 1.18em;
+            color: #38bdf8;
+            margin-bottom: 0.2em;
+            margin-top: 0;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 10px #232946;
+        }
+        
+        .user-location {
+            color: #10b981;
+            font-size: 0.98em;
+            margin-bottom: 1em;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        
+        .user-quote {
+            font-size: 1.13em;
+            color: #e2e8f0;
+            margin-bottom: 0.7em;
+            line-height: 1.6;
+            position: relative;
+            font-style: italic;
+            text-shadow: 0 1px 10px #232946;
+        }
+        
+        .user-quote:before,
+        .user-quote:after {
+            content: '"';
+            color: #10b981;
+            font-size: 1.2em;
+            font-weight: bold;
+            vertical-align: top;
+        }
+        
+        .user-quote:after {
+            content: '"';
+        }
+        
+        .stars {
+            color: #facc15;
+            margin-bottom: 0.3em;
+            font-size: 1.15em;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 6px #facc1555;
+        }
+        
+        .cta-card {
+            background: rgba(35, 41, 64, 0.97);
+            border-radius: 1.7rem;
+            box-shadow: 0 8px 32px 0 rgba(16, 185, 129, 0.10);
+            border: 1.5px solid rgba(59, 130, 246, 0.11);
+            padding: 2rem 1.5rem 1.6rem 1.5rem;
+            max-width: 500px;
+            margin: 2rem auto 0 auto;
+            text-align: center;
+            animation: slideIn 1.1s cubic-bezier(.47, 1.64, .41, .8) both;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .glass-btn {
+            display: inline-block;
+            padding: 1rem 2.2rem;
+            border: none;
+            border-radius: 2rem;
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            box-shadow: 0 4px 32px 0 #10b98140, 0 1.5px 8px 0 #23252640;
+            cursor: pointer;
+            margin-top: 1.2rem;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            text-decoration: none;
+            text-align: center;
+            animation: btnPop 1s cubic-bezier(.47, 1.64, .41, .8);
+        }
+        
+        .glass-btn:hover {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            transform: scale(1.04);
+            box-shadow: 0 8px 32px 0 #10b98190, 0 2px 16px 0 #23252660;
+        }
+        
+        @keyframes btnPop {
+            from {
+                opacity: 0;
+                transform: scale(0.88);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .footer {
+            margin-top: 2.5em;
+            color: #64748b;
+            font-size: 1em;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+        
+        @media (max-width: 900px) {
+            .testimonials-grid {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .testimonial-card {
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem 0.2rem 2rem 0.2rem;
+            }
+            .main-title {
+                font-size: 1.3rem;
+            }
+            .testimonial-card,
+            .cta-card {
+                padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated glass blobs for depth -->
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+    <div class="container">
+        <div class="main-title">User Wall of Fame</div>
+        <div class="subtitle">See your name? Thank you for making NetPariksha.com the best!<br>We celebrate every user who shares their experience.</div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card featured">
+                <span class="crown"><i class="fas fa-crown"></i></span>
+                <span class="avatar-frame">
+          <!-- Girl SVG avatar -->
+          <svg class="avatar-svg" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="32" fill="#facc15"/>
+            <ellipse cx="32" cy="40" rx="17" ry="12" fill="#fff"/>
+            <ellipse cx="32" cy="29" rx="15" ry="15" fill="#fde68a"/>
+            <ellipse cx="32" cy="36" rx="8" ry="7" fill="#fde68a"/>
+            <ellipse cx="24" cy="28" rx="2.3" ry="2.7" fill="#232946"/>
+            <ellipse cx="40" cy="28" rx="2.3" ry="2.7" fill="#232946"/>
+            <ellipse cx="32" cy="34" rx="2.3" ry="1.2" fill="#fbbf24"/>
+            <path d="M20 27 Q32 12 44 27" stroke="#232946" stroke-width="2" fill="none"/>
+            <ellipse cx="23" cy="23" rx="4" ry="2.5" fill="#232946" opacity="0.13"/>
+            <ellipse cx="41" cy="23" rx="4" ry="2.5" fill="#232946" opacity="0.13"/>
+          </svg>
+        </span>
+                <div class="user-name">Ava Williams</div>
+                <div class="user-location">San Francisco, USA</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <div class="user-quote">NetPariksha is a game changer! The design is gorgeous and the speed results are spot-on every time.</div>
+            </div>
+            <div class="testimonial-card">
+                <span class="avatar-frame">
+          <!-- Boy SVG avatar -->
+          <svg class="avatar-svg" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="32" fill="#3b82f6"/>
+            <ellipse cx="32" cy="41" rx="17" ry="12" fill="#fff"/>
+            <ellipse cx="32" cy="30" rx="15" ry="15" fill="#fde68a"/>
+            <ellipse cx="32" cy="37" rx="8" ry="7" fill="#fde68a"/>
+            <ellipse cx="24" cy="29" rx="2.3" ry="2.7" fill="#232946"/>
+            <ellipse cx="40" cy="29" rx="2.3" ry="2.7" fill="#232946"/>
+            <ellipse cx="32" cy="35" rx="2.3" ry="1.2" fill="#fbbf24"/>
+            <path d="M23 22 Q32 14 41 22" stroke="#232946" stroke-width="2" fill="none"/>
+          </svg>
+        </span>
+                <div class="user-name">Rahul Sharma</div>
+                <div class="user-location">Pune, India</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="user-quote">The only speed test I trust. Love the privacy-first approach and the beautiful interface!</div>
+            </div>
+            <div class="testimonial-card">
+                <span class="avatar-frame">
+          <!-- Girl SVG avatar -->
+          <svg class="avatar-svg" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="32" fill="#10b981"/>
+            <ellipse cx="32" cy="40" rx="17" ry="12" fill="#fff"/>
+            <ellipse cx="32" cy="29" rx="15" ry="15" fill="#fde68a"/>
+            <ellipse cx="32" cy="36" rx="8" ry="7" fill="#fde68a"/>
+            <ellipse cx="24" cy="28" rx="2.3" ry="2.7" fill="#232946"/>
+            <ellipse cx="40" cy="28" rx="2.3" ry="2.7" fill="#232946"/>
+            <ellipse cx="32" cy="34" rx="2.3" ry="1.2" fill="#fbbf24"/>
+            <path d="M20 27 Q32 12 44 27" stroke="#232946" stroke-width="2" fill="none"/>
+            <ellipse cx="23" cy="23" rx="4" ry="2.5" fill="#232946" opacity="0.13"/>
+            <ellipse cx="41" cy="23" rx="4" ry="2.5" fill="#232946" opacity="0.13"/>
+          </svg>
+        </span>
+                <div class="user-name">Emily Chen</div>
+                <div class="user-location">Singapore</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <div class="user-quote">Super fast, super easy. The UI is stunning and results are spot-on. Highly recommended!</div>
+            </div>
+            <div class="testimonial-card">
+                <span class="avatar-frame">
+          <!-- Boy SVG avatar -->
+          <svg class="avatar-svg" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="32" fill="#3b82f6"/>
+            <ellipse cx="32" cy="41" rx="17" ry="12" fill="#fff"/>
+            <ellipse cx="32" cy="30" rx="15" ry="15" fill="#fde68a"/>
+            <ellipse cx="32" cy="37" rx="8" ry="7" fill="#fde68a"/>
+            <ellipse cx="24" cy="29" rx="2.3" ry="2.7" fill="#232946"/>
+            <ellipse cx="40" cy="29" rx="2.3" ry="2.7" fill="#232946"/>
+            <ellipse cx="32" cy="35" rx="2.3" ry="1.2" fill="#fbbf24"/>
+            <path d="M23 22 Q32 14 41 22" stroke="#232946" stroke-width="2" fill="none"/>
+          </svg>
+        </span>
+                <div class="user-name">Arjun Patel</div>
+                <div class="user-location">London, UK</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <div class="user-quote">I use NetPariksha to check my office and home speeds. The results are reliable and the site is beautiful!</div>
+            </div>
+            <div class="testimonial-card">
+                <span class="avatar-frame">
+          <!-- Girl SVG avatar -->
+          <svg class="avatar-svg" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="32" fill="#10b981"/>
+            <ellipse cx="32" cy="40" rx="17" ry="12" fill="#fff"/>
+            <ellipse cx="32" cy="29" rx="15" ry="15" fill="#fde68a"/>
+            <ellipse cx="32" cy="36" rx="8" ry="7" fill="#fde68a"/>
+            <ellipse cx="24" cy="28" rx="2.3" ry="2.7" fill="#232946"/>
+            <ellipse cx="40" cy="28" rx="2.3" ry="2.7" fill="#232946"/>
+            <ellipse cx="32" cy="34" rx="2.3" ry="1.2" fill="#fbbf24"/>
+            <path d="M20 27 Q32 12 44 27" stroke="#232946" stroke-width="2" fill="none"/>
+            <ellipse cx="23" cy="23" rx="4" ry="2.5" fill="#232946" opacity="0.13"/>
+            <ellipse cx="41" cy="23" rx="4" ry="2.5" fill="#232946" opacity="0.13"/>
+          </svg>
+        </span>
+                <div class="user-name">Sara Gomez</div>
+                <div class="user-location">Madrid, Spain</div>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <div class="user-quote">Finally, a speed test that works everywhere and doesn’t track me. Five stars!</div>
+            </div>
+        </div>
+        <div class="cta-card">
+            <div style="font-size:1.15em;font-weight:600;margin-bottom:0.7em;">Want to see your name here?</div>
+            <div style="color:#a5b4fc;margin-bottom:1.2em;">Share your experience and join the NetPariksha Wall of Fame!</div>
+            <a href="help.html" class="glass-btn"><i class="fas fa-pen"></i> Submit Your Review</a>
+        </div>
+        <div class="footer">
+            <a href="index.html" class="glass-btn" style="margin-top:1.5em;">Back to Home</a>
+        </div>
+    </div>
+</body>
+
+</html>

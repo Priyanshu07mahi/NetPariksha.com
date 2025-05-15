@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NetPariksha - Professional Network Diagnostics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced network speed test and diagnostic tool">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="logo">NetPariksha</h1>
+            <p class="tagline">Precision Network Analytics</p>
+        </header>
+
+        <main>
+            <div class="control-panel">
+                <button id="startBtn" class="start-btn">
+                    <span class="btn-text">Start Speed Test</span>
+                </button>
+            </div>
+
+            <div class="speed-meters">
+                <div class="speed-meter download">
+                    <div class="gauge-container">
+                        <svg class="gauge" viewBox="0 0 180 180">
+                            <circle class="gauge-base" cx="90" cy="90" r="75"/>
+                            <circle class="gauge-progress" cx="90" cy="90" r="75"/>
+                        </svg>
+                        <div class="speed-display">
+                            <span id="downloadSpeed" class="speed-value">--</span>
+                            <span class="speed-unit">Mbps</span>
+                        </div>
+                    </div>
+                    <h2 class="meter-label">Download Speed</h2>
+                </div>
+
+                <div class="speed-meter upload">
+                    <div class="gauge-container">
+                        <svg class="gauge" viewBox="0 0 180 180">
+                            <circle class="gauge-base" cx="90" cy="90" r="75"/>
+                            <circle class="gauge-progress" cx="90" cy="90" r="75"/>
+                        </svg>
+                        <div class="speed-display">
+                            <span id="uploadSpeed" class="speed-value">--</span>
+                            <span class="speed-unit">Mbps</span>
+                        </div>
+                    </div>
+                    <h2 class="meter-label">Upload Speed</h2>
+                </div>
+            </div>
+
+            <div class="network-info">
+                <div class="info-card">
+                    <div class="info-item">
+                        <span class="info-label">ISP:</span>
+                        <span id="isp" class="info-value">--</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Location:</span>
+                        <span id="location" class="info-value">--</span>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <div class="info-item">
+                        <span class="info-label">Ping:</span>
+                        <span id="ping" class="info-value">--</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Network Type:</span>
+                        <span id="networkType" class="info-value">--</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>NetPariksha</h4>
+                    <p>&copy; <span id="currentYear"></span> All rights reserved</p>
+                    <p>Precision Network Measurement System</p>
+                </div>
+                <div class="footer-section">
+                    <button onclick="window.location.href='privacy.html'">Privacy Policy</button>
+                    <button onclick="window.location.href='terms.html'">Terms of Use</button>
+                    <button onclick="window.location.href='donotsell.html'">Do Not Sell My Info</button>
+                </div>
+                <div class="footer-section">
+                    <button onclick="window.location.href='about.html'">About the Creator</button>
+                    <button onclick="window.location.href='help.html'">Help</button>
+                    <button onclick="window.location.href='accessibility.html'">Accessibility</button>
+                    <button onclick="window.location.href='status.html'">Network Status</button>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
