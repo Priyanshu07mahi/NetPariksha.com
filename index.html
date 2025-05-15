@@ -7,20 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Advanced network speed test and diagnostic tool">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- SVG Favicon (avatar logo) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='32' cy='32' r='32' fill='%233b82f6'/%3E%3Cellipse cx='32' cy='41' rx='17' ry='12' fill='white'/%3E%3Cellipse cx='32' cy='30' rx='15' ry='15' fill='%23fde68a'/%3E%3Cellipse cx='32' cy='37' rx='8' ry='7' fill='%23fde68a'/%3E%3Cellipse cx='24' cy='29' rx='2.3' ry='2.7' fill='%23232946'/%3E%3Cellipse cx='40' cy='29' rx='2.3' ry='2.7' fill='%23232946'/%3E%3Cellipse cx='32' cy='35' rx='2.3' ry='1.2' fill='%23fbbf24'/%3E%3Cpath d='M23 22 Q32 14 41 22' stroke='%23232946' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Glassmorphism animated blobs for depth -->
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
     <div class="container">
         <header>
-            <h1 class="logo">NetPariksha</h1>
+            <h1 class="logo">
+                <span class="logo-avatar">
+                  <!-- SVG avatar logo -->
+                  <svg viewBox="0 0 64 64" fill="none">
+                    <circle cx="32" cy="32" r="32" fill="#3b82f6"/>
+                    <ellipse cx="32" cy="41" rx="17" ry="12" fill="white"/>
+                    <ellipse cx="32" cy="30" rx="15" ry="15" fill="#fde68a"/>
+                    <ellipse cx="32" cy="37" rx="8" ry="7" fill="#fde68a"/>
+                    <ellipse cx="24" cy="29" rx="2.3" ry="2.7" fill="#232946"/>
+                    <ellipse cx="40" cy="29" rx="2.3" ry="2.7" fill="#232946"/>
+                    <ellipse cx="32" cy="35" rx="2.3" ry="1.2" fill="#fbbf24"/>
+                    <path d="M23 22 Q32 14 41 22" stroke="#232946" stroke-width="2" fill="none"/>
+                  </svg>
+                </span>
+                NetPariksha.com
+            </h1>
             <p class="tagline">Precision Network Analytics</p>
         </header>
 
         <main>
             <div class="control-panel">
                 <button id="startBtn" class="start-btn">
-                    <span class="btn-text">Start Speed Test</span>
+                    <span class="btn-text"><i class="fas fa-bolt"></i> Start Speed Test</span>
                 </button>
             </div>
 
@@ -28,6 +50,12 @@
                 <div class="speed-meter download">
                     <div class="gauge-container">
                         <svg class="gauge" viewBox="0 0 180 180">
+                            <defs>
+                              <linearGradient id="downloadGradient" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#10b981"/>
+                                <stop offset="100%" stop-color="#3b82f6"/>
+                              </linearGradient>
+                            </defs>
                             <circle class="gauge-base" cx="90" cy="90" r="75"/>
                             <circle class="gauge-progress" cx="90" cy="90" r="75"/>
                         </svg>
@@ -36,12 +64,18 @@
                             <span class="speed-unit">Mbps</span>
                         </div>
                     </div>
-                    <h2 class="meter-label">Download Speed</h2>
+                    <h2 class="meter-label"><i class="fas fa-download"></i> Download Speed</h2>
                 </div>
 
                 <div class="speed-meter upload">
                     <div class="gauge-container">
                         <svg class="gauge" viewBox="0 0 180 180">
+                            <defs>
+                              <linearGradient id="uploadGradient" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#ef4444"/>
+                                <stop offset="100%" stop-color="#3b82f6"/>
+                              </linearGradient>
+                            </defs>
                             <circle class="gauge-base" cx="90" cy="90" r="75"/>
                             <circle class="gauge-progress" cx="90" cy="90" r="75"/>
                         </svg>
@@ -50,28 +84,28 @@
                             <span class="speed-unit">Mbps</span>
                         </div>
                     </div>
-                    <h2 class="meter-label">Upload Speed</h2>
+                    <h2 class="meter-label"><i class="fas fa-upload"></i> Upload Speed</h2>
                 </div>
             </div>
 
             <div class="network-info">
                 <div class="info-card">
                     <div class="info-item">
-                        <span class="info-label">ISP:</span>
+                        <span class="info-label"><i class="fas fa-globe"></i> ISP:</span>
                         <span id="isp" class="info-value">--</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Location:</span>
+                        <span class="info-label"><i class="fas fa-location-dot"></i> Location:</span>
                         <span id="location" class="info-value">--</span>
                     </div>
                 </div>
                 <div class="info-card">
                     <div class="info-item">
-                        <span class="info-label">Ping:</span>
+                        <span class="info-label"><i class="fas fa-stopwatch"></i> Ping:</span>
                         <span id="ping" class="info-value">--</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Network Type:</span>
+                        <span class="info-label"><i class="fas fa-wifi"></i> Network Type:</span>
                         <span id="networkType" class="info-value">--</span>
                     </div>
                 </div>
@@ -89,6 +123,7 @@
                     <button onclick="window.location.href='privacy.html'">Privacy Policy</button>
                     <button onclick="window.location.href='terms.html'">Terms of Use</button>
                     <button onclick="window.location.href='donotsell.html'">Do Not Sell My Info</button>
+                    <button onclick="window.location.href='testimonials.html'">Testimonials</button>
                 </div>
                 <div class="footer-section">
                     <button onclick="window.location.href='about.html'">About the Creator</button>
@@ -98,9 +133,13 @@
                 </div>
             </div>
         </footer>
-
     </div>
+    <script>
+      // Set current year in footer
+      document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
+      });
+    </script>
     <script src="script.js"></script>
 </body>
-
 </html>
