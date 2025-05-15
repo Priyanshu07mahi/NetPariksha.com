@@ -1,78 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About the Creator - NetPariksha</title>
+    <title>About the Creator - NetPariksha.com</title>
+    <meta name="description" content="Meet the creator of NetPariksha.com, a passionate web developer.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-         :root {
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        :root {
             --primary: #2563eb;
-            --background: #0f172a;
-            --text: #f8fafc;
+            --accent: #10b981;
+            --bg-gradient: linear-gradient(135deg, #232526 0%, #1a2980 100%);
+            --glass-bg: rgba(18,22,40,0.92);
+            --glass-border: linear-gradient(120deg, #2563eb 0%, #10b981 100%);
+            --shadow: 0 8px 32px 0 rgba(31,38,135,0.25);
+            --heading-glow: 0 0 8px #10b981, 0 0 18px #2563eb;
         }
-        
         body {
             min-height: 100vh;
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #232526 0%, #1a2980 100%);
-            color: var(--text);
+            background: var(--bg-gradient);
+            color: #f8fafc;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2rem;
+            padding: 2rem 0 3rem 0;
+            overflow-x: hidden;
         }
-        
-        .container {
-            background: rgba(34, 40, 49, 0.85);
-            border-radius: 2rem;
-            padding: 2.5rem;
-            max-width: 800px;
-            width: 90%;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .main-title {
+            font-size: 2.7rem;
+            font-weight: 900;
+            text-align: center;
+            margin: 1.2rem 0 0.3em 0;
+            background: linear-gradient(90deg, #3b82f6 20%, #10b981 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            filter: drop-shadow(0 2px 12px #10b981c0);
+            letter-spacing: 2px;
+            animation: glow 2.5s infinite alternate;
         }
-        
-        h1 {
-            color: var(--primary);
+        @keyframes glow {
+            from { filter: drop-shadow(0 2px 12px #10b981c0);}
+            to   { filter: drop-shadow(0 8px 36px #3b82f6cc);}
+        }
+        .creator-card {
+            background: var(--glass-bg);
+            border-radius: 2.2rem;
+            box-shadow: var(--shadow), 0 2px 12px 0 #10b98150;
+            border: 2.5px solid transparent;
+            background-clip: padding-box;
+            margin: 2rem auto 1.5rem auto;
+            padding: 2.5rem 2.3rem 2.2rem 2.3rem;
+            max-width: 600px;
+            width: 92vw;
+            position: relative;
+            z-index: 1;
+            transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
+            transform: perspective(700px) translateZ(0px);
+            animation: floatIn 1s cubic-bezier(.47,1.64,.41,.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .creator-card:hover {
+            box-shadow: 0 24px 64px 0 #10b98160, 0 4px 32px #2563eb30;
+            border-image: var(--glass-border) 1;
+            border-width: 2.5px;
+            border-style: solid;
+            transform: perspective(700px) translateZ(24px) scale(1.025);
+        }
+        @keyframes floatIn {
+            from { opacity: 0; transform: translateY(60px) scale(0.98);}
+            to { opacity: 1; transform: translateY(0) scale(1);}
+        }
+        .avatar-frame {
+            margin-top: -4.5rem;
             margin-bottom: 1.5rem;
+            background: conic-gradient(from 0deg, #10b981, #2563eb, #3b82f6, #10b981 100%);
+            border-radius: 50%;
+            padding: 7px;
+            box-shadow: 0 0 32px 0 #10b98170, 0 2px 16px #23252650;
+            width: 130px;
+            height: 130px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: rotate 4.5s linear infinite;
         }
-        
-        p {
-            line-height: 1.6;
-            margin-bottom: 1rem;
+        @keyframes rotate {
+            0% { filter: hue-rotate(0deg);}
+            100% { filter: hue-rotate(360deg);}
         }
-        
-        .start-btn {
+        .avatar-img {
+            width: 116px;
+            height: 116px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 2px 12px #10b98170;
+            border: 3px solid #fff;
+        }
+        .creator-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin: 0.2em 0 0.2em 0;
+            background: linear-gradient(90deg, #10b981 20%, #3b82f6 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            letter-spacing: 1px;
+            filter: drop-shadow(0 1px 8px #10b98190);
+        }
+        .creator-title {
+            font-size: 1.12rem;
+            color: #a5b4fc;
+            margin-bottom: 1.1em;
+            letter-spacing: 0.3px;
+            font-weight: 500;
+        }
+        .creator-bio {
+            color: #e2e8f0;
+            font-size: 1.13rem;
+            text-align: center;
+            margin-bottom: 1.5em;
+            line-height: 1.7;
+        }
+        .social-row {
+            display: flex;
+            justify-content: center;
+            gap: 1.2em;
+            margin-bottom: 0.5em;
+        }
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            border: 2.5px solid transparent;
+            box-shadow: 0 2px 12px #10b98150;
+            font-size: 2rem;
+            color: #3b82f6;
+            transition: background 0.2s, border 0.2s, color 0.2s, transform 0.2s;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            animation: popIn 1.2s cubic-bezier(.47,1.64,.41,.8);
+        }
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.8);}
+            to { opacity: 1; transform: scale(1);}
+        }
+        .social-btn:hover {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            border-image: var(--glass-border) 1;
+            color: #fff;
+            transform: scale(1.12) rotate(-6deg);
+            box-shadow: 0 6px 24px #10b98190;
+        }
+        .glass-btn {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: var(--primary);
-            color: white;
             border: none;
             border-radius: 2rem;
             font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            background: var(--button-gradient);
+            box-shadow: 0 4px 32px 0 #10b98140, 0 1.5px 8px 0 #23252640;
+            cursor: pointer;
+            margin: 2.5rem auto 0 auto;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            transform: perspective(400px) translateZ(10px);
             text-decoration: none;
-            margin-top: 2rem;
-            transition: background 0.3s;
+            text-align: center;
+            animation: btnPop 1s cubic-bezier(.47,1.64,.41,.8);
         }
-        
-        .start-btn:hover {
-            background: #3b82f6;
+        .glass-btn:hover {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            transform: perspective(400px) translateZ(25px) scale(1.04);
+            box-shadow: 0 8px 32px 0 #10b98190, 0 2px 16px 0 #23252660;
         }
-        
-        a {
-            color: #60a5fa;
+        @keyframes btnPop {
+            from { opacity: 0; transform: scale(0.88);}
+            to { opacity: 1; transform: scale(1);}
+        }
+        @media (max-width: 600px) {
+            .creator-card { padding: 1.2rem 0.7rem 1rem 0.7rem; }
+            .main-title { font-size: 1.5rem; }
+            .avatar-frame { width: 90px; height: 90px; }
+            .avatar-img { width: 78px; height: 78px; }
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>About the Creator</h1>
-        <p>NetPariksha was developed by Priyanshu Aryan, a passionate developer focused on network transparency and user privacy. For feedback or collaboration, email <a href="mailto:priyanshuaryanp8626@gmail.com">priyanshuaryanp8626@gmail.com</a>.</p>
-        <a href="index.html" class="start-btn">Back to Home</a>
+    <h1 class="main-title">About the Creator</h1>
+    <div class="creator-card">
+        <div class="avatar-frame">
+            <!-- You can use your real photo or a cool avatar here! -->
+            <img src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" alt="Priyanshu Aryan Avatar" class="avatar-img">
+        </div>
+        <div class="creator-name">Priyanshu Aryan Panda</div>
+        <div class="creator-title">Web Developer & Creator of NetPariksha.com</div>
+        <div class="creator-bio">
+            Hi! I’m Priyanshu Aryan, a passionate web developer, UI/UX enthusiast, and tech innovator. My mission is to build web products that are fast, beautiful, and privacy-first.<br>
+            <br>
+            NetPariksha.com is my vision for a next-generation, user-friendly, and transparent network speed test. I believe in open web standards, accessibility, and pushing the boundaries of design and technology.<br>
+            <br>
+            <b>Let’s connect!</b>
+        </div>
+        <div class="social-row">
+            <a class="social-btn" href="https://www.instagram.com/priyanshu_aryan_panda/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a class="social-btn" href="https://www.facebook.com/priyanshu.panda.79274" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a class="social-btn" href="https://x.com/PriyanshuMSD" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+            <a class="social-btn" href="https://www.linkedin.com/in/priyanshu-aryan-panda-a26b8229a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
     </div>
+    <a href="index.html" class="glass-btn">Back to Home</a>
 </body>
-
 </html>
