@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://netpariksha.netlify.app/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://netpariksha.netlify.app/privacy.html</loc>
+  </url>
+  <url>
+    <loc>https://netpariksha.netlify.app/terms.html</loc>
+  </url>
+  <url>
+    <loc>https://netpariksha.netlify.app/donotsell.html</loc>
+  </url>
+  <url>
+    <loc>https://netpariksha.netlify.app/testimonials.html</loc>
+  </url>
+  <url>
+    <loc>https://netpariksha.netlify.app/about.html</loc>
+  </url>
+  <url>
+    <loc>https://netpariksha.netlify.app/help.html</loc>
+  </url>
+  <url>
+    <loc>https://netpariksha.netlify.app/accessibility.html</loc>
+  </url>
+  <url>
+    <loc>https://netpariksha.netlify.app/status.html</loc>
+  </url>
+</urlset>
