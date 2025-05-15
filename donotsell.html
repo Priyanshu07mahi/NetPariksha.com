@@ -1,79 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do Not Sell My Info - NetPariksha</title>
+    <title>Do Not Sell My Personal Information - NetPariksha.com</title>
+    <meta name="description" content="Your CCPA rights and how to opt out of personal data sales on NetPariksha.com.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-         :root {
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        :root {
             --primary: #2563eb;
-            --background: #0f172a;
+            --accent: #10b981;
+            --glass-bg: rgba(35,41,64,0.94);
+            --glass-border: linear-gradient(120deg, #2563eb 0%, #10b981 100%);
+            --shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+            --gradient: linear-gradient(135deg, #232526 0%, #1a2980 100%);
             --text: #f8fafc;
+            --button-gradient: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
         }
-        
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
         body {
             min-height: 100vh;
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #232526 0%, #1a2980 100%);
+            background: var(--gradient);
             color: var(--text);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 2rem;
+            padding: 2rem 0 3rem 0;
         }
-        
-        .container {
-            background: rgba(34, 40, 49, 0.85);
-            border-radius: 2rem;
-            padding: 2.5rem;
-            max-width: 800px;
-            width: 90%;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .ccpa-card {
+            background: var(--glass-bg);
+            border-radius: 2.2rem;
+            box-shadow: var(--shadow), 0 2px 12px 0 #10b98130;
+            border: 2.5px solid transparent;
+            background-clip: padding-box;
+            padding: 2.7rem 2.1rem 2.4rem 2.1rem;
+            max-width: 480px;
+            width: 96vw;
+            margin: 3.3rem auto 2.2rem auto;
+            position: relative;
+            z-index: 1;
+            box-sizing: border-box;
+            transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
+            transform: perspective(700px) translateZ(0px);
+            animation: floatIn 1s cubic-bezier(.47,1.64,.41,.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        
-        h1 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
+        .ccpa-card:hover {
+            box-shadow: 0 24px 64px 0 #10b98130, 0 4px 32px #2563eb30;
+            border-image: var(--glass-border) 1;
+            border-width: 2.5px;
+            border-style: solid;
+            transform: perspective(700px) translateZ(24px) scale(1.025);
         }
-        
-        p {
-            line-height: 1.6;
-            margin-bottom: 1rem;
+        @keyframes floatIn {
+            from { opacity: 0; transform: translateY(60px) scale(0.98);}
+            to { opacity: 1; transform: translateY(0) scale(1);}
         }
-        
-        .start-btn {
+        .ccpa-icon {
+            font-size: 2.7rem;
+            color: #29e6ff;
+            margin-bottom: 0.4em;
+            filter: drop-shadow(0 0 10px #29e6ff80);
+            background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+            border-radius: 50%;
+            padding: 0.3em 0.45em;
             display: inline-block;
+        }
+        .main-title {
+            font-size: 1.7rem;
+            font-weight: 900;
+            text-align: center;
+            background: linear-gradient(90deg, #29e6ff 20%, #2563eb 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 12px #2563eb80;
+            margin-bottom: 0.7em;
+            margin-top: 0;
+        }
+        .ccpa-desc {
+            color: #e2e8f0;
+            font-size: 1.13rem;
+            text-align: center;
+            margin-bottom: 2.1em;
+            line-height: 1.8;
+        }
+        .ccpa-section-title {
+            color: #10b981;
+            font-size: 1.13em;
+            font-weight: 700;
+            margin-top: 1.4em;
+            margin-bottom: 0.5em;
+            letter-spacing: 0.5px;
+        }
+        ul.ccpa-list {
+            margin: 0 0 1.5em 0;
+            padding: 0 0 0 1.3em;
+        }
+        ul.ccpa-list li {
+            margin-bottom: 0.85em;
+            color: #e2e8f0;
+            font-size: 1.08em;
+            line-height: 1.6;
+        }
+        .ccpa-note {
+            color: #a5b4fc;
+            font-size: 0.99em;
+            margin: 1.2em 0 0.6em 0;
+            text-align: center;
+        }
+        .glass-btn {
+            display: inline-block;
+            width: 100%;
             padding: 1rem 2.5rem;
-            background: var(--primary);
-            color: white;
             border: none;
             border-radius: 2rem;
             font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            background: var(--button-gradient);
+            box-shadow: 0 4px 32px 0 #10b98140, 0 1.5px 8px 0 #23252640;
+            cursor: pointer;
+            margin: 1.5rem auto 0 auto;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+            transform: perspective(400px) translateZ(10px);
             text-decoration: none;
-            margin-top: 2rem;
-            transition: background 0.3s;
+            text-align: center;
+            animation: btnPop 1s cubic-bezier(.47,1.64,.41,.8);
         }
-        
-        .start-btn:hover {
-            background: #3b82f6;
+        .glass-btn i {
+            margin-right: 0.5em;
         }
-        
-        a {
-            color: #60a5fa;
+        .glass-btn:hover {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            transform: perspective(400px) translateZ(25px) scale(1.04);
+            box-shadow: 0 8px 32px 0 #10b98190, 0 2px 16px 0 #23252660;
+        }
+        @keyframes btnPop {
+            from { opacity: 0; transform: scale(0.88);}
+            to { opacity: 1; transform: scale(1);}
+        }
+        @media (max-width: 600px) {
+            .ccpa-card { padding: 1.2rem 0.7rem 1.2rem 0.7rem; }
+            .main-title { font-size: 1.18rem; }
+            .ccpa-icon { font-size: 1.7rem; }
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>Do Not Sell My Information</h1>
-        <p>We do not sell user data. NetPariksha has no third-party data sharing agreements.</p>
-        <p>For opt-out requests, contact: <a href="mailto:priyanshuaryanp8626@gmail.com">priyanshuaryanp8626@gmail.com</a></p>
-        <a href="index.html" class="start-btn">Back to Home</a>
+    <div class="ccpa-card">
+        <div class="ccpa-icon"><i class="fas fa-user-shield"></i></div>
+        <div class="main-title">Do Not Sell My Personal Information</div>
+        <div class="ccpa-desc">
+            <b>Effective Date:</b> May 16, 2025<br>
+            <br>
+            Under the California Consumer Privacy Act (CCPA), California residents have important rights regarding their personal information. NetPariksha.com is committed to transparency and respecting your privacy choices.
+        </div>
+        <div class="ccpa-section-title">Your CCPA Rights</div>
+        <ul class="ccpa-list">
+            <li><b>Right to Know:</b> You have the right to request that we disclose what personal information we collect, use, disclose, and sell.</li>
+            <li><b>Right to Delete:</b> You have the right to request the deletion of your personal information that we hold.</li>
+            <li><b>Right to Access:</b> You have the right to request a copy of the specific personal information we hold about you.</li>
+            <li><b>Right to Opt-Out:</b> You have the right to opt out of the sale of your personal information.</li>
+            <li><b>Right to Non-Discrimination:</b> You have the right not to be discriminated against for exercising any of your privacy rights.</li>
+        </ul>
+        <div class="ccpa-section-title">NetPariksha.com Does Not Sell Your Personal Information</div>
+        <p style="color:#e2e8f0;font-size:1.08em;margin-bottom:1.3em;">
+            NetPariksha.com does <b>not</b> sell your personal information to third parties. We do not share your data for advertising or marketing purposes. Any information collected is used solely to provide and improve our services, as described in our <a href="privacy.html" style="color:#29e6ff;font-weight:700;text-decoration:underline;">Privacy Policy</a>.
+        </p>
+        <div class="ccpa-section-title">How to Exercise Your Rights</div>
+        <ul class="ccpa-list">
+            <li>To request access to, or deletion of, your personal information, or to opt out of any potential sale, please email us at <a href="mailto:priyanshuaryanp8626@gmail.com" style="color:#29e6ff;font-weight:700;">priyanshuaryanp8626@gmail.com</a>.</li>
+            <li>We will respond to verifiable requests within 45 days, as required by law.</li>
+        </ul>
+        <div class="ccpa-note">
+            For more details about the categories of personal information we collect and how we use it, please see our <a href="privacy.html" style="color:#29e6ff;font-weight:700;">Privacy Policy</a>.
+        </div>
+        <a href="index.html" class="glass-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
     </div>
 </body>
-
 </html>
