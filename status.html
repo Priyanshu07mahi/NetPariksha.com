@@ -1,75 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Status - NetPariksha</title>
-    <style>
-         :root {
-            --primary: #2563eb;
-            --background: #0f172a;
-            --text: #f8fafc;
-        }
-        
-        body {
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #232526 0%, #1a2980 100%);
-            color: var(--text);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem;
-        }
-        
-        .container {
-            background: rgba(34, 40, 49, 0.85);
-            border-radius: 2rem;
-            padding: 2.5rem;
-            max-width: 800px;
-            width: 90%;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        
-        h1 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        p {
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-        
-        .start-btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 2rem;
-            font-size: 1.1rem;
-            text-decoration: none;
-            margin-top: 2rem;
-            transition: background 0.3s;
-        }
-        
-        .start-btn:hover {
-            background: #3b82f6;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Status - NetPariksha.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Real-time and historical status of NetPariksha.com.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --operational: #10b981;
+      --background: #0f172a;
+      --card-bg: rgba(30,41,59,0.98);
+      --border: rgba(255,255,255,0.06);
+      --shadow: 0 8px 32px 0 rgba(16,185,129,0.10);
+      --primary: #2563eb;
+      --accent: #10b981;
+      --text: #f8fafc;
+      --subtle: #64748b;
+      --graph-bg: #1e293b;
+      --graph-line: #3b82f6;
+      --graph-green: #10b981;
+      --graph-dot: #fff;
+    }
+    body {
+      background: var(--background);
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem 2rem 1rem;
+    }
+    .status-banner {
+      background: linear-gradient(90deg, #10b981 0%, #2563eb 100%);
+      color: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 14px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 2.2rem;
+      text-align: left;
+      box-shadow: 0 2px 18px #10b98140;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+      border: 1.5px solid var(--border);
+      filter: drop-shadow(0 0 16px #10b98150);
+    }
+    .status-banner i {
+      font-size: 1.7em;
+      margin-right: 0.2em;
+      filter: drop-shadow(0 0 8px #fff);
+    }
+    .component-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.3rem 1.6rem;
+      margin-bottom: 2rem;
+      font-size: 1.18rem;
+      border: 1.5px solid var(--border);
+    }
+    .component-name {
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+    .component-status {
+      color: var(--operational);
+      font-weight: 700;
+      font-size: 1.08rem;
+      border-radius: 1em;
+      background: rgba(16,185,129,0.13);
+      padding: 0.2em 1.1em;
+      border: 1px solid #10b98180;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 8px #10b98130;
+    }
+    .graph-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 1.1rem 1.6rem 1.6rem 1.6rem;
+      margin-bottom: 2rem;
+      border: 1.5px solid var(--border);
+    }
+    .graph-title {
+      font-weight: 600;
+      margin-bottom: 0.2em;
+      color: #fff;
+      font-size: 1.11rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      letter-spacing: 0.4px;
+    }
+    .graph-title i {
+      color: #64748b;
+      font-size: 1em;
+      margin-left: 0.2em;
+    }
+    .graph-value {
+      font-size: 1.08rem;
+      color: #38bdf8;
+      margin-bottom: 0.5em;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+    .incident-history {
+      margin-top: 2.5rem;
+    }
+    .incident-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.7em;
+      letter-spacing: 0.4px;
+    }
+    .incident-day {
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 1px 4px #10b98110;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.1rem;
+      border: 1.5px solid var(--border);
+    }
+    .incident-date {
+      font-weight: 600;
+      color: #38bdf8;
+      margin-bottom: 0.5em;
+      font-size: 1.06em;
+      letter-spacing: 0.4px;
+    }
+    .incident-none {
+      color: var(--subtle);
+      font-size: 1.04em;
+      font-style: italic;
+    }
+    .footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: #64748b;
+      font-size: 1em;
+    }
+    a {
+      color: #38bdf8;
+      text-decoration: underline;
+    }
+    /* Graph styles */
+    .svg-graph {
+      width: 100%;
+      height: 60px;
+      background: var(--graph-bg);
+      border-radius: 8px;
+      margin-top: 0.5em;
+      box-shadow: 0 2px 8px #2563eb20;
+      display: block;
+    }
+    .svg-graph-small {
+      height: 38px;
+    }
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container { padding: 1rem 0.2rem 2rem 0.2rem; }
+      .status-banner { font-size: 1.07rem; padding: 1rem; }
+      .component-card, .graph-card { padding: 1rem 0.6rem; }
+      .svg-graph { height: 38px; }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>Network Status</h1>
-        <p><span style="color: #10b981;">●</span> All systems operational</p>
-        <p>Last updated: 15 May 2025</p>
-        <a href="index.html" class="start-btn">Back to Home</a>
+  <div class="container">
+    <!-- Status Banner -->
+    <div class="status-banner">
+      <i class="fas fa-circle-check"></i>
+      <span>All Systems Operational</span>
     </div>
-</body>
 
+    <!-- Components -->
+    <div class="component-card">
+      <span class="component-name">NetPariksha.com</span>
+      <span class="component-status">Operational</span>
+    </div>
+
+    <!-- Graphs -->
+    <div class="graph-card">
+      <div class="graph-title">
+        NetPariksha Global Performance
+        <i class="fas fa-info-circle" title="Average response time worldwide"></i>
+      </div>
+      <div class="graph-value">402.6 ms</div>
+      <!-- Animated SVG performance graph -->
+      <svg class="svg-graph" viewBox="0 0 350 60" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="perfLine" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#38bdf8" />
+            <stop offset="100%" stop-color="#10b981" />
+          </linearGradient>
+          <radialGradient id="perfDot" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.1"/>
+          </radialGradient>
+        </defs>
+        <polyline fill="none" stroke="url(#perfLine)" stroke-width="3"
+          points="0,40 20,38 40,41 60,35 80,37 100,42 120,36 140,41 160,39 180,40 200,38 220,42 240,37 260,36 280,40 300,38 320,41 340,35" />
+        <!-- Dots -->
+        <circle cx="340" cy="35" r="5" fill="url(#perfDot)" />
+        <circle cx="220" cy="42" r="4.5" fill="url(#perfDot)" />
+        <circle cx="100" cy="42" r="4" fill="url(#perfDot)" />
+      </svg>
+    </div>
+    <div class="graph-card">
+      <div class="graph-title">
+        NetPariksha Intelligence - Uptime
+        <i class="fas fa-info-circle" title="Uptime for analytics and reporting"></i>
+      </div>
+      <div class="graph-value">100%</div>
+      <svg class="svg-graph svg-graph-small" viewBox="0 0 350 38" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="uptimeGreen" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#10b981" />
+            <stop offset="100%" stop-color="#38bdf8" />
+          </linearGradient>
+        </defs>
+        <polyline fill="none" stroke="url(#uptimeGreen)" stroke-width="3"
+          points="0,12 350,12"/>
+        <line x1="0" y1="30" x2="350" y2="30" stroke="#64748b" stroke-width="1"/>
+      </svg>
+    </div>
+    <div class="graph-card">
+      <div class="graph-title">
+        API Dashboard - Uptime
+        <i class="fas fa-info-circle" title="Uptime for API endpoints"></i>
+      </div>
+      <div class="graph-value">100%</div>
+      <svg class="svg-graph svg-graph-small" viewBox="0 0 350 38" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="uptimeGreen2" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#10b981" />
+            <stop offset="100%" stop-color="#38bdf8" />
+          </linearGradient>
+        </defs>
+        <polyline fill="none" stroke="url(#uptimeGreen2)" stroke-width="3"
+          points="0,12 350,12"/>
+        <line x1="0" y1="30" x2="350" y2="30" stroke="#64748b" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <!-- Past Incidents -->
+    <div class="incident-history">
+      <div class="incident-title">Past Incidents (Last 5 Days)</div>
+      <div id="past-incidents"></div>
+    </div>
+
+    <div class="footer">
+      &copy; 2025 NetPariksha.com &nbsp;|&nbsp;
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+  <script>
+    // Format date as Month Day, Year (e.g., May 16, 2025)
+    function formatDate(date) {
+      const months = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+      ];
+      const month = months[date.getMonth()];
+      const day = date.getDate();
+      const year = date.getFullYear();
+      return `${month} ${day}, ${year}`;
+    }
+
+    // Generate the last 5 days (including today)
+    function generateLastFiveDays() {
+      const pastIncidentsContainer = document.getElementById('past-incidents');
+      pastIncidentsContainer.innerHTML = '';
+      const today = new Date();
+      for (let i = 0; i < 5; i++) {
+        const currentDate = new Date();
+        currentDate.setDate(today.getDate() - i);
+        const formattedDate = formatDate(currentDate);
+        const incidentDay = document.createElement('div');
+        incidentDay.className = 'incident-day';
+        const dateElement = document.createElement('div');
+        dateElement.className = 'incident-date';
+        dateElement.textContent = formattedDate;
+        const noIncidents = document.createElement('div');
+        noIncidents.className = 'incident-none';
+        noIncidents.textContent = 'No incidents reported';
+        incidentDay.appendChild(dateElement);
+        incidentDay.appendChild(noIncidents);
+        pastIncidentsContainer.appendChild(incidentDay);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', generateLastFiveDays);
+  </script>
+</body>
 </html>
